@@ -3,23 +3,80 @@
 <head>
   <title>My Notes</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    textarea {
+      width: 100%;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      margin-right: 10px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <h1> My Notes</h1>
 
-  <h2>Python Basics</h2>
+  <h1>📓 My Learning Notes</h1>
+
+  <!-- Python Notes -->
+  <h2>📘 Python Basics</h2>
   <ul>
     <li><b>Variables:</b> Store data using <code>=</code>, like <code>x = 10</code></li>
     <li><b>Data Types:</b> int, float, str, bool</li>
-  <li><b>Lists:</b> <code>my_list = [1, 2, 3]</code></li>
+    <li><b>Lists:</b> <code>my_list = [1, 2, 3]</code></li>
   </ul>
 
-  <h2>Trading Notes</h2>
+  <h3>✍️ Python Note Taker</h3>
+  <textarea id="pythonNotes" rows="10" placeholder="Type your Python notes here..."></textarea><br>
+  <button onclick="saveNote('pythonNotes')">💾 Save</button>
+  <button onclick="clearNote('pythonNotes')">🗑 Clear</button>
+
+  <!-- Trading Notes -->
+  <h2>📊 Trading Notes</h2>
   <ul>
-  <li><b>Support:</b> A level where price tends to stop falling</li>
-  <li><b>Resistance:</b> A level where price tends to stop rising</li>
-  <li><b>Volume:</b> High volume = strong conviction</li>
-</ul>
+    <li><b>Support:</b> Price level where falling stops</li>
+    <li><b>Resistance:</b> Price level where rising stops</li>
+    <li><b>Volume:</b> Confirms the strength of a move</li>
+  </ul>
+
+  <h3>✍️ Trading Note Taker</h3>
+  <textarea id="tradingNotes" rows="10" placeholder="Type your trading notes here..."></textarea><br>
+  <button onclick="saveNote('tradingNotes')">💾 Save</button>
+  <button onclick="clearNote('tradingNotes')">🗑 Clear</button>
+
+  <!-- General Notes -->
+  <h2>📝 General Notes</h2>
+  <textarea id="generalNotes" rows="10" placeholder="Write anything here..."></textarea><br>
+  <button onclick="saveNote('generalNotes')">💾 Save</button>
+  <button onclick="clearNote('generalNotes')">🗑 Clear</button>
+
+  <!-- JavaScript Logic -->
+  <script>
+    const areas = ['pythonNotes', 'tradingNotes', 'generalNotes'];
+
+    areas.forEach(id => {
+      const saved = localStorage.getItem(id);
+      if (saved) document.getElementById(id).value = saved;
+    });
+
+    function saveNote(id) {
+      const content = document.getElementById(id).value;
+      localStorage.setItem(id, content);
+      alert("Saved!");
+    }
+
+    function clearNote(id) {
+      if (confirm("Clear notes?")) {
+        document.getElementById(id).value = "";
+        localStorage.removeItem(id);
+      }
+    }
+  </script>
+
   <p><a href="index.html">← Back to Bookmarks</a></p>
 </body>
 </html>
