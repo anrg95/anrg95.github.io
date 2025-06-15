@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Notes</title>
+</head>
+<body>
+  <h1> My Notes</h1>
+
+  <h2>Python Basics</h2>
+  <ul>
+    <li><b>Variables:</b> Used to store values. Example: <code>x = 10</code></li>
+    <li><b>Loops:</b> Use <code>for</code> and <code>while</code> to repeat tasks.</li>
+  </ul>
+
+  <h2>Trading Notes</h2>
+  <p>I'll log patterns, strategies, and journal entries here...</p>
+
+  <p><a href="index.html">← Back to Bookmarks</a></p>
+</body>
+</html>
